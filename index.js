@@ -5,6 +5,7 @@ const productController = require('./controller/product');
 const userController = require('./controller/user');
 const commentController = require('./controller/comment');
 const cartController = require('./controller/cart');
+const orderController = require('./controller/order');
 
 // Create Express app
 const app = express();
@@ -51,6 +52,13 @@ app.get('/api/v1/carts', cartController.getAllCart);
 app.get('/api/v1/carts/:id', cartController.getCartById);
 app.put('/api/v1/carts/:id', cartController.updateCartById);
 app.delete('/api/v1/carts/:id', cartController.deleteCartById);
+
+// Order Routes
+app.post('/api/v1/orders', orderController.createOrder);
+app.get('/api/v1/orders', orderController.getOrders);
+app.get('/api/v1/orders/:id', orderController.getOrderById);
+app.put('/api/v1/orders/:id', orderController.updateOrder);
+app.delete('/api/v1/orders/:id', orderController.deleteOrder);
 
 // Define routes
 app.get('/', (req, res) => {

@@ -10,7 +10,7 @@ const createCart = async (req, res) => {
     });
     res.status(201).json(cart);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create cart' });
+    res.status(500).json({ error: `Failed to create cart, ${error?.message}` });
   }
 };
 

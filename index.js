@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const productController = require('./controller/product');
 
 // Create Express app
 const app = express();
@@ -20,6 +21,13 @@ mongoose
   .catch((err) => {
     console.error('MongoDB connection error:', err);
   });
+
+// Product routes
+app.post('/api/v1/products', productController.createProduct);
+app.get('/api/v1/products', productController.getAllProducts);
+app.get('/api/v1/products/:id', productController.getProductById);
+app.put('/api/v1/products/:id', productController.updateProduct);
+app.delete('/api/v1/products/:id', productController.deleteProduct);
 
 // Define routes
 app.get('/', (req, res) => {

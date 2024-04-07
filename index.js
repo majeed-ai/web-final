@@ -1,9 +1,9 @@
-// Import required modules
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const productController = require('./controller/product');
 const userController = require('./controller/user');
+const commentController = require('./controller/comment');
 
 // Create Express app
 const app = express();
@@ -17,7 +17,7 @@ mongoose
     'mongodb+srv://majeed:dJxtdMa6Qwsp25r4@cluster0.fxprjh6.mongodb.net/majeed-assignment4?retryWrites=true&w=majority&appName=Cluster0'
   )
   .then(() => {
-    console.log('MongoDB connected');
+    console.log('MongoDB connected - Database:majeed-assignment4');
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
@@ -36,6 +36,13 @@ app.get('/api/v1/users', userController.getUsers);
 app.get('/api/v1/users/:id', userController.getUserById);
 app.put('/api/v1/users/:id', userController.updateUser);
 app.delete('/api/v1/users/:id', userController.deleteUser);
+
+// Comment Routes
+app.post('/api/v1/comments', commentController.createComment);
+app.get('/api/v1/comments', commentController.getComments);
+app.get('/api/v1/comments/:id', commentController.getCommentById);
+app.put('/api/v1/comments/:id', commentController.updateComment);
+app.delete('/api/v1/comments/:id', commentController.deleteComment);
 
 // Define routes
 app.get('/', (req, res) => {

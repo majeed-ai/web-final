@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const productController = require('./controller/product');
+const userController = require('./controller/user');
 
 // Create Express app
 const app = express();
@@ -28,6 +29,13 @@ app.get('/api/v1/products', productController.getAllProducts);
 app.get('/api/v1/products/:id', productController.getProductById);
 app.put('/api/v1/products/:id', productController.updateProduct);
 app.delete('/api/v1/products/:id', productController.deleteProduct);
+
+// User Routes
+app.post('/api/v1/users', userController.createUser);
+app.get('/api/v1/users', userController.getUsers);
+app.get('/api/v1/users/:id', userController.getUserById);
+app.put('/api/v1/users/:id', userController.updateUser);
+app.delete('/api/v1/users/:id', userController.deleteUser);
 
 // Define routes
 app.get('/', (req, res) => {

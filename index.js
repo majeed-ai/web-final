@@ -13,11 +13,12 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 
+const dbUrl =
+  'mongodb+srv://majeed:dJxtdMa6Qwsp25r4@cluster0.phgy9ol.mongodb.net/majeed-assignment4?retryWrites=true&w=majority&appName=Cluster0';
+
 // Mongoose Connect
 mongoose
-  .connect(
-    'mongodb+srv://majeed:dJxtdMa6Qwsp25r4@cluster0.fxprjh6.mongodb.net/majeed-assignment4?retryWrites=true&w=majority&appName=Cluster0'
-  )
+  .connect(dbUrl)
   .then(() => {
     console.log('MongoDB connected - Database:majeed-assignment4');
   })

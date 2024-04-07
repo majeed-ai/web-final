@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const productController = require('./controller/product');
 const userController = require('./controller/user');
 const commentController = require('./controller/comment');
+const cartController = require('./controller/cart');
 
 // Create Express app
 const app = express();
@@ -43,6 +44,13 @@ app.get('/api/v1/comments', commentController.getComments);
 app.get('/api/v1/comments/:id', commentController.getCommentById);
 app.put('/api/v1/comments/:id', commentController.updateComment);
 app.delete('/api/v1/comments/:id', commentController.deleteComment);
+
+// Comment Routes
+app.post('/api/v1/carts', cartController.createCart);
+app.get('/api/v1/carts', cartController.getAllCart);
+app.get('/api/v1/carts/:id', cartController.getCartById);
+app.put('/api/v1/carts/:id', cartController.updateCartById);
+app.delete('/api/v1/carts/:id', cartController.deleteCartById);
 
 // Define routes
 app.get('/', (req, res) => {

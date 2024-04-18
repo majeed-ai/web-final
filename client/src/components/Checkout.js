@@ -43,6 +43,7 @@ export default function Checkout({ isOpen, onClose }) {
       event.preventDefault();
       const payload = { ...state, user: user?._id, total, items: cart };
       const { data } = await axiosApi.post('/api/v1/orders', payload);
+      alert('Order Placed Successfully');
       setCart([]);
       onClose();
       debugger;

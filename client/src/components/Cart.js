@@ -69,7 +69,7 @@ export default function Cart({ onCheckout }) {
               Cancel
             </Button>
             <Button
-              isDisabled={cart?.length <= 1}
+              isDisabled={cart?.length <= 0}
               onClick={onCheckout}
               size="sm"
               colorScheme="blue"

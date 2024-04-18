@@ -27,7 +27,7 @@ export default function Footer() {
           StyleHub
         </Flex>
         <Text pt={6} fontSize={'sm'} textAlign={'center'}>
-          © 2022 Style Hub. All rights reserved
+          Made by Mohammed Abdul Majeed - 8942406
         </Text>
       </Box>
     </Box>

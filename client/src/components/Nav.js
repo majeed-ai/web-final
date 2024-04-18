@@ -79,6 +79,7 @@ export default function Nav() {
                 size={'md'}
                 icon={<Icon as={MdShoppingCart} boxSize={5} />}
               />
+              {cart?.length > 0 && cart?.length}
             </Flex>
           </Flex>
           {isOpen ? (

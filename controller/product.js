@@ -1,3 +1,4 @@
+const { productData } = require('../data');
 const Product = require('../schema/productSchema');
 
 // Create a new product
@@ -5,7 +6,7 @@ const createProduct = async (req, res) => {
   try {
     const product = await Product.create(req.body);
     res.status(201).json(product);
-  } catch (err) {
+  } catch (error) {
     res
       .status(500)
       .json({ error: `Failed to create product, ${error?.message}` });

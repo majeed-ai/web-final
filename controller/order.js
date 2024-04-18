@@ -3,8 +3,7 @@ const Order = require('../schema/orderSchema');
 // Create a new order
 const createOrder = async (req, res) => {
   try {
-    const { items, total, date, user } = req.body;
-    const order = await Order.create({ items, total, date, user });
+    const order = await Order.create(req.body);
     res.status(201).json(order);
   } catch (error) {
     res

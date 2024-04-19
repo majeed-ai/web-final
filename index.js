@@ -73,12 +73,10 @@ app.delete('/api/v1/orders/:id', orderController.deleteOrder);
 
 // Define routes
 app.get('/', (req, res) => {
-  res.send('Majeed Assignment 4!');
+  res.send('Majeed');
 });
 
 // Start the server
 app.listen(8080, () => {
-  console.log(
-    'Majeed Assignment 4 Server started on port http://localhost:8080/'
-  );
+  console.log('Majeed, Server started on port http://localhost:8080/');
 });
